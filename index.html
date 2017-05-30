@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/jquery-3.2.0.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/materialize.min.js" type="text/javascript"></script>
+
+<div class="container">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4" id="music-div">
+        <!--Music Player-->
+        <div class="card player center wow fadeInDown" id="music1">
+            <div class="card-image">
+                <img src="img/album-art-lanadelrey.jpg">
+            </div>
+            <a class="btn-floating btn-large waves-effect waves-light volume"><i
+                    class="fa fa-volume-up"></i></a>
+            <input type="range" id="volumeController" min="0" max="100" value="100">
+            <a class="btn-floating btn-large waves-effect waves-light rewind"><i
+                    class="fa fa-backward"></i></a>
+            <a class="btn-floating btn-large waves-effect waves-light play-button"><i
+                    class="fa fa-play"></i>
+                <audio id="music">
+                    <source src="audio/Yazdan%20-%20Summertime%20Sadness%20(Lana%20Del%20Rey%20Piano%20Cover).mp3" type="audio/mp3" />
+                </audio>
+            </a>
+            <a class="btn-floating btn-large waves-effect waves-light fast-forward"><i
+                    class="fa fa-forward"></i></a>
+            <a class="btn-floating btn-large waves-effect waves-light download"
+               href="audio/Yazdan%20-%20Summertime%20Sadness%20(Lana%20Del%20Rey%20Piano%20Cover).mp3" download><i
+                    class="fa fa-download"></i></a>
+            <div id="timeline">
+                <div id="seekline">
+                    <div id="playhead"></div>
+                </div>
+            </div>
+            <div class="card-content">
+                <h5 class="center-align">Evanescene - My Immortal</h5>
+            </div>
+        </div>
+        <!--/Music Player-->
+    </div>
+</div>
+<script src="js/musicplayer.js" type="text/javascript"></script>
+</body>
