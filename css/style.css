@@ -7,13 +7,10 @@
 .play-button {
     background-color: #2962ff;
     position: absolute;
-    margin-left: 30px;
+    margin-left: calc(50% - 28px);
     margin-top: -30px;
     left: 0;
     transition: margin-left 1s, background-color 0.3s;
-}
-.playing {
-    margin-left: calc(50% - 28px);
 }
 .play-button:hover,
 .fast-forward:hover,
