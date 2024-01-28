@@ -1,0 +1,49 @@
+{
+  "name": "material-audio-player",
+  "version": "1.0.0",
+  "description": "A customizable audio player with material style",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "npm-run-all css-compile css-prefix css-minify",
+    "css-compile": "sass --style expanded --embed-sources --error-css styles/main.scss dist/css/audio-player.css",
+    "css-prefix": "postcss --config build/postcss.config.mjs --replace \"dist/css/*.css\" \"!dist/css/*.rtl*.css\" \"!dist/css/*.min.css\"",
+    "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output dist/css/ --batch --batch-suffix \".min\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*rtl*.css\"",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaztak/Material-HTML-Audio-Player.git"
+  },
+  "keywords": [
+    "javascript",
+    "audio",
+    "player",
+    "material"
+  ],
+  "author": "yaztak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaztak/Material-HTML-Audio-Player/issues"
+  },
+  "homepage": "https://github.com/yaztak/Material-HTML-Audio-Player#readme",
+  "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "autoprefixer": "^10.4.17",
+    "babel-loader": "^9.1.3",
+    "clean-css-cli": "^5.6.3",
+    "css-loader": "^6.8.1",
+    "cssnano": "^6.0.3",
+    "node-sass": "^9.0.0",
+    "npm-run-all2": "^6.1.1",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "postcss-loader": "^7.3.4",
+    "postcss-preset-env": "^9.3.0",
+    "sass": "^1.69.7",
+    "sass-loader": "^13.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
