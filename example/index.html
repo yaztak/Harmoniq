@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../dist/css/audio-player.min.css"/>
 </head>
 <body>
 <audio controls id="my-audio" class="audio-player custom">
@@ -11,7 +12,7 @@
 <!--<script src="../dist/js/audio-player.min.js"></script>-->
 <script type="module">
     // Import your AudioPlayer class
-    import AudioPlayer from '../dist/js/audio-player.min.js';
+    import AudioPlayer from '../dist/js/audio-player.esm.min.js';
 
     // Instantiate the audio player
     const player = new AudioPlayer('#my-audio', {
