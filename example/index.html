@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../dist/css/audio-player.min.css"/>
+<!--    <link rel="stylesheet" href="../dist/css/audio-player.min.css"/>-->
+    <link rel="stylesheet" href="../styles/main.css"/>
 </head>
 <body>
-<audio controls id="my-audio" class="audio-player custom">
-    <source src="../src/assets/audio.mp3"/>
-</audio>
+<!--<audio controls id="my-audio" class="audio-player custom">-->
+<!--    <source src="../src/assets/audio.mp3"/>-->
+<!--</audio>-->
+
+<div class="audio-player__wrapper">
+  <img src="../src/assets/placeholder.png" class="audio-player__image"/>
+  <div class="audio-player__controls">
+    <button class="audio-player__btn"></button>
+    <button class="audio-player__btn audio-player__btn--play"></button>
+    <button class="audio-player__btn"></button>
+  </div>
+</div>
 <!--<script src="../dist/js/audio-player.min.js"></script>-->
 <script type="module">
     // Import your AudioPlayer class
-    import AudioPlayer from '../dist/js/audio-player.esm.min.js';
+    // import AudioPlayer from '../dist/js/audio-player.esm.min.js';
+    import AudioPlayer from "../src/audio-player.js";
 
     // Instantiate the audio player
     const player = new AudioPlayer('#my-audio', {

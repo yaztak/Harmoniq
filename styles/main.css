@@ -6,4 +6,51 @@
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>');
 }
 
+.audio-player__btn {
+  min-width: 50px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.audio-player__btn--play {
+  min-width: 60px;
+  min-height: 60px;
+}
+.audio-player__btn--play:before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>');
+}
+
+.audio-player__wrapper {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+}
+.audio-player__image {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.audio-player__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
 /*# sourceMappingURL=main.css.map */

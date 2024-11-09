@@ -642,4 +642,7 @@ dist
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
+Thumbs.db
+.DS_Store
+
 # End of https://www.toptal.com/developers/gitignore/api/linux,jetbrains,phpstorm,visualstudiocode,visualstudio,windows
