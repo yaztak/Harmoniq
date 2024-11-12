@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-<!--    <link rel="stylesheet" href="../dist/css/audio-player.min.css"/>-->
-    <link rel="stylesheet" href="../styles/main.css"/>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!--    <link rel="stylesheet" href="../dist/css/audio-player.min.css"/>-->
+  <link rel="stylesheet" href="../styles/main.css"/>
 </head>
 <body>
 <!--<audio controls id="my-audio" class="audio-player custom">-->
 <!--    <source src="../src/assets/audio.mp3"/>-->
 <!--</audio>-->
 
-<div class="audio-player__wrapper">
-  <img src="../src/assets/placeholder.png" class="audio-player__image"/>
+<div class="audio-player__wrapper" style="background-image: url('../src/assets/placeholder.svg')">
+  <img src="../src/assets/placeholder.svg" class="audio-player__image"/>
+  <div class="audio-player__label">
+    <span class="audio-player__title">Title</span>
+    <span class="audio-player__subtitle">Subtitle</span>
+  </div>
   <div class="audio-player__controls">
-    <button class="audio-player__btn"></button>
-    <button class="audio-player__btn audio-player__btn--play"></button>
-    <button class="audio-player__btn"></button>
+    <button class="audio-player__btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+        <path
+          d="M796.15-295.38 519.23-480l276.92-184.62v369.24Zm-355.38 0L163.85-480l276.92-184.62v369.24Zm-40-184.62Zm355.38 0ZM400.77-370v-220L235.54-480l165.23 110Zm355.38 0v-220L590.92-480l165.23 110Z"/>
+      </svg>
+    </button>
+    <button class="audio-player__btn audio-player__btn--play">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="1000px" fill="#e8eaed">
+        <path d="M360-272.31v-415.38L686.15-480 360-272.31ZM400-480Zm0 134 211.54-134L400-614v268Z"/>
+      </svg>
+    </button>
+    <button class="audio-player__btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+        <path
+          d="M163.85-295.38v-369.24L440.77-480 163.85-295.38Zm355.38 0v-369.24L796.15-480 519.23-295.38ZM203.85-480Zm355.38 0ZM203.85-370l165.23-110-165.23-110v220Zm355.38 0 165.23-110-165.23-110v220Z"/>
+      </svg>
+    </button>
   </div>
 </div>
 <!--<script src="../dist/js/audio-player.min.js"></script>-->
 <script type="module">
-    // Import your AudioPlayer class
-    // import AudioPlayer from '../dist/js/audio-player.esm.min.js';
-    import AudioPlayer from "../src/audio-player.js";
+  // Import your AudioPlayer class
+  // import AudioPlayer from '../dist/js/audio-player.esm.min.js';
+  import AudioPlayer from "../src/audio-player.js";
 
-    // Instantiate the audio player
-    const player = new AudioPlayer('#my-audio', {
-        type: 'classic'
-    });
+  // Instantiate the audio player
+  const player = new AudioPlayer('#my-audio', {
+    type: 'classic'
+  });
 </script>
 </body>
 </html>

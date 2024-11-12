@@ -16,41 +16,109 @@
   border-radius: 50%;
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.audio-player__btn svg {
+  width: 30px;
+  height: 30px;
+  fill: #333333;
+  transition: 0.3s;
 }
 .audio-player__btn--play {
   min-width: 60px;
   min-height: 60px;
 }
-.audio-player__btn--play:before {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>');
+.audio-player__btn--play svg {
+  width: 46px;
+  height: 46px;
+}
+.audio-player__btn:hover {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+.audio-player__btn:hover svg {
+  fill: #444444;
 }
 
+.audio-player * {
+  box-sizing: border-box;
+}
 .audio-player__wrapper {
   width: 100%;
   max-width: 350px;
-  border-radius: 16px;
+  border-radius: 32px;
   padding: 16px;
-  background-color: rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(30px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.audio-player__wrapper:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(30px);
+}
+.audio-player__wrapper:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 .audio-player__image {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 16px;
+  width: 100%;
+  z-index: 2;
 }
 .audio-player__controls {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 16px;
   width: 100%;
+  z-index: 2;
+}
+.audio-player__label {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.audio-player__title {
+  text-align: center;
+  display: block;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+}
+.audio-player__subtitle {
+  text-align: center;
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */
