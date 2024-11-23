@@ -11,8 +11,8 @@
 
 .audio-player {
   &__btn {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 40px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,8 +24,8 @@
     transition: 0.3s;
 
     svg {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       fill: #333333;
       transition: 0.3s;
     }
