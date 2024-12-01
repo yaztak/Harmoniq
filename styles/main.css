@@ -119,9 +119,15 @@
 }
 .audio-player__progress {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 12px;
   z-index: 2;
+  width: 100%;
+}
+.audio-player__time-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 .audio-player__time {
@@ -134,7 +140,7 @@
 .audio-player__line {
   flex: 1;
   background-color: rgba(255, 255, 255, 0.5);
-  height: 1px;
+  min-height: 1px;
   position: relative;
 }
 .audio-player__line:before {
