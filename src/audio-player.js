@@ -78,13 +78,13 @@ export default class AudioPlayer {
     </div>
   </div>
   <div class='audio-player__controls'>
-    <button class='audio-player__btn'>
+    <button class='audio-player__btn audio-player__btn--rewind'>
       ${this.getIcon('fast-rewind-outline')}
     </button>
     <button class='audio-player__btn audio-player__btn--play'>
       ${this.getIcon('play-outline')}
     </button>
-    <button class='audio-player__btn'>
+    <button class='audio-player__btn audio-player__btn--forward'>
       ${this.getIcon('fast-forward-outline')}
     </button>
   </div>
@@ -106,9 +106,17 @@ export default class AudioPlayer {
 
   addPlaybackEventListeners() {
     const playButton = this.wrapperElement.querySelector('.audio-player__btn--play')
+    const rewindButton = this.wrapperElement.querySelector('.audio-player__btn--rewind')
+    const forwardButton = this.wrapperElement.querySelector('.audio-player__btn--forward')
     playButton.addEventListener('click', () => {
       if (this.audioElement.paused) this.play()
       else this.pause()
+    })
+    rewindButton.addEventListener('click', () => {
+      this.audioElement.currentTime -= 5
+    })
+    forwardButton.addEventListener('click', () => {
+      this.audioElement.currentTime += 5
     })
   }
 
@@ -118,6 +126,7 @@ export default class AudioPlayer {
       this.progress = (this.audioElement.currentTime / this.audioElement.duration) * 100
       this.updateProgress()
       this.updateElapsedTime()
+      if (this.progress === 100) this.pause()
     })
   }
 
