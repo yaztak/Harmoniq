@@ -62,8 +62,8 @@ export default class AudioPlayer {
 
   createAudioPlayerUI() {
     const template = `
-      <div class='audio-player ${this.getClassNames()}' style="background-image: url('../src/assets/placeholder.svg'); --progress: ${this.progress}%">
-  <img src='../src/assets/placeholder.svg' class='audio-player__image'/>
+      <div class='audio-player ${this.getClassNames()}' style="background-image: url('/placeholder.svg'); --progress: ${this.progress}%">
+  <img src='/placeholder.svg' class='audio-player__image'/>
   <div class='audio-player__label'>
     <span class='audio-player__title'>Title</span>
     <span class='audio-player__subtitle'>Subtitle</span>
