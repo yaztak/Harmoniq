@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "npm-run-all css-compile css-prefix css-minify",
-    "css-compile": "sass --style expanded --embed-sources --error-css styles/main.scss dist/css/audio-player.css",
+    "css-compile": "sass --style expanded --embed-sources --error-css src/styles/main.scss dist/css/audio-player.css",
     "css-prefix": "postcss --config build/postcss.config.mjs --replace \"dist/css/*.css\" \"!dist/css/*.rtl*.css\" \"!dist/css/*.min.css\"",
     "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output dist/css/ --batch --batch-suffix \".min\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*rtl*.css\"",
     "js": "npm-run-all js-compile js-minify",

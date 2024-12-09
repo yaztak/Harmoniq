@@ -62,11 +62,11 @@ export default class AudioPlayer {
 
   createAudioPlayerUI() {
     const template = `
-      <div class='audio-player ${this.getClassNames()}' style="background-image: url('/placeholder.svg'); --progress: ${this.progress}%">
-  <img src='/placeholder.svg' class='audio-player__image'/>
+      <div class='audio-player ${this.getClassNames()}' style="background-image: url(${this.options.albumArt || '/placeholder.svg'}); --progress: ${this.progress}%">
+  <img src='${this.options.albumArt || '/placeholder.svg'}' class='audio-player__image'/>
   <div class='audio-player__label'>
-    <span class='audio-player__title'>Title</span>
-    <span class='audio-player__subtitle'>Subtitle</span>
+    <span class='audio-player__title'>${this.options.title}</span>
+    <span class='audio-player__subtitle'>${this.options.artist}</span>
   </div>
   <div class='audio-player__progress'>
     <div class='audio-player__line'>

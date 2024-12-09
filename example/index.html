@@ -13,11 +13,12 @@
 <!--<script src="../dist/js/audio-player.min.js"></script>-->
 <script type="module">
   import AudioPlayer from "@src/audio-player.js";
-  import '@styles/main.css';
+  import '@src/styles/main.css';
 
   // Instantiate the audio player
   const player = new AudioPlayer('#my-audio', {
-    type: 'classic'
+    title: 'Song Name',
+    artist: 'Artist Name'
   });
 </script>
 </body>
