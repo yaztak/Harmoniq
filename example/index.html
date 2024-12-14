@@ -1,25 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<audio controls id="my-audio" class="audio-player custom">
-    <source src="/audio.mp3"/>
-</audio>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <audio controls id="my-audio" class="audio-player custom">
+      <source src="/audio.mp3" />
+    </audio>
 
+    <!--<script src="../dist/js/audio-player.min.js"></script>-->
+    <script type="module">
+      import AudioPlayer from '@src/audio-player.js'
+      import '@src/styles/main.scss'
 
-<!--<script src="../dist/js/audio-player.min.js"></script>-->
-<script type="module">
-  import AudioPlayer from "@src/audio-player.js";
-  import '@src/styles/main.css';
-
-  // Instantiate the audio player
-  const player = new AudioPlayer('#my-audio', {
-    title: 'Song Name',
-    artist: 'Artist Name'
-  });
-</script>
-</body>
+      // Instantiate the audio player
+      const player = new AudioPlayer('#my-audio', {
+        title: 'Song Name',
+        artist: 'Artist Name',
+      })
+    </script>
+  </body>
 </html>

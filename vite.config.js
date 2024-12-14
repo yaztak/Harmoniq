@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   root: './example',
@@ -16,5 +16,5 @@ export default defineConfig({
   build: {
     outDir: '../dist',
   },
-  publicDir: '../public'
-});
+  publicDir: '../public',
+})

@@ -109,14 +109,14 @@
   text-align: center;
   display: block;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
 }
 .audio-player__subtitle {
   text-align: center;
   display: block;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 12px;
 }
 .audio-player__progress {
   display: flex;
