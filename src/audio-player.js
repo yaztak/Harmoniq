@@ -43,7 +43,7 @@ export default class AudioPlayer {
 
   getClassSelectors() {
     let classes = []
-    this.wrapperClasses.forEach(className => {
+    this.wrapperClasses.forEach((className) => {
       let selector = `.${className}`
       classes.push(selector)
     })
@@ -51,13 +51,14 @@ export default class AudioPlayer {
   }
 
   formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    const minutes = Math.floor(seconds / 60)
+    const secs = Math.floor(seconds % 60)
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
   }
 
   getIcon(name) {
-    return icons.get(name)
+    const iconType = this.options.iconType === 'outline' ? 'outline' : 'filled'
+    return icons.get(`${name}-${iconType}`)
   }
 
   createAudioPlayerUI() {
@@ -79,13 +80,13 @@ export default class AudioPlayer {
   </div>
   <div class='audio-player__controls'>
     <button class='audio-player__btn audio-player__btn--rewind'>
-      ${this.getIcon('fast-rewind-outline')}
+      ${this.getIcon('fast-rewind')}
     </button>
     <button class='audio-player__btn audio-player__btn--play'>
-      ${this.getIcon('play-outline')}
+      ${this.getIcon('play')}
     </button>
     <button class='audio-player__btn audio-player__btn--forward'>
-      ${this.getIcon('fast-forward-outline')}
+      ${this.getIcon('fast-forward')}
     </button>
   </div>
 </div>
@@ -137,45 +138,45 @@ export default class AudioPlayer {
     const progressLine = this.wrapperElement.querySelector('.audio-player__line')
 
     seeker.addEventListener('mousedown', () => {
-      isDragging = true;
+      isDragging = true
       isPlaying = !this.audioElement.paused
-      seeker.style.cursor = 'grabbing';
+      seeker.style.cursor = 'grabbing'
       this.pause()
-    });
+    })
 
     document.addEventListener('mousemove', (event) => {
       if (isDragging) {
-        const rect = progressLine.getBoundingClientRect();
-        let newLeft = event.clientX - rect.left;
-        newLeft = Math.max(0, Math.min(newLeft, rect.width));
+        const rect = progressLine.getBoundingClientRect()
+        let newLeft = event.clientX - rect.left
+        newLeft = Math.max(0, Math.min(newLeft, rect.width))
 
-        this.progress = (newLeft / rect.width) * 100;
+        this.progress = (newLeft / rect.width) * 100
         this.updateProgress()
         this.updateElapsedTime()
       }
-    });
+    })
 
     document.addEventListener('mouseup', (event) => {
       if (isDragging) {
-        const rect = progressLine.getBoundingClientRect();
-        let newLeft = event.clientX - rect.left;
-        newLeft = Math.max(0, Math.min(newLeft, rect.width));
-        this.audioElement.currentTime =  (newLeft / rect.width) * this.audioElement.duration;
+        const rect = progressLine.getBoundingClientRect()
+        let newLeft = event.clientX - rect.left
+        newLeft = Math.max(0, Math.min(newLeft, rect.width))
+        this.audioElement.currentTime = (newLeft / rect.width) * this.audioElement.duration
 
-        isDragging = false;
-        seeker.style.cursor = 'grab';
+        isDragging = false
+        seeker.style.cursor = 'grab'
         if (isPlaying) this.play()
       }
-    });
+    })
   }
 
   addProgressLineClickEventListeners() {
     const progressLine = this.wrapperElement.querySelector('.audio-player__line')
     progressLine.addEventListener('click', (event) => {
-      const rect = progressLine.getBoundingClientRect();
-      const clickPosition = event.clientX - rect.left;
-      this.audioElement.currentTime = (clickPosition / rect.width) * this.audioElement.duration;
-    });
+      const rect = progressLine.getBoundingClientRect()
+      const clickPosition = event.clientX - rect.left
+      this.audioElement.currentTime = (clickPosition / rect.width) * this.audioElement.duration
+    })
   }
 
   updateProgress() {
@@ -184,21 +185,23 @@ export default class AudioPlayer {
 
   updateElapsedTime() {
     const elapsedTime = this.wrapperElement.querySelector('.audio-player__time--elapsed')
-    elapsedTime.textContent = this.formatTime(this.audioElement.currentTime);
+    elapsedTime.textContent = this.formatTime(this.audioElement.currentTime)
   }
 
   updateDurationTime() {
     const durationTime = this.wrapperElement.querySelector('.audio-player__time--duration')
-    durationTime.textContent = this.formatTime(this.audioElement.duration);
+    durationTime.textContent = this.formatTime(this.audioElement.duration)
   }
 
   play() {
     this.audioElement.play()
-    document.querySelector(`.audio-player${this.getClassSelectors()} .audio-player__btn--play`).innerHTML = this.getIcon('pause-outline')
+    document.querySelector(`.audio-player${this.getClassSelectors()} .audio-player__btn--play`).innerHTML =
+      this.getIcon('pause')
   }
 
   pause() {
     this.audioElement.pause()
-    document.querySelector(`.audio-player${this.getClassSelectors()} .audio-player__btn--play`).innerHTML = this.getIcon('play-outline')
+    document.querySelector(`.audio-player${this.getClassSelectors()} .audio-player__btn--play`).innerHTML =
+      this.getIcon('play')
   }
 }
