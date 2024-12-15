@@ -63,38 +63,38 @@ export default class AudioPlayer {
 
   createAudioPlayerUI() {
     const template = `
-      <div class='audio-player ${this.getClassNames()}' style="background-image: url(${this.options.albumArt || '/placeholder.svg'}); --progress: ${this.progress}%">
-  <img src='${this.options.albumArt || '/placeholder.svg'}' class='audio-player__image'/>
-  <div class='audio-player__label'>
-    <span class='audio-player__title'>${this.options.title}</span>
-    <span class='audio-player__subtitle'>${this.options.artist}</span>
-  </div>
-  <div class='audio-player__progress'>
-    <div class='audio-player__line'>
-      <span class='audio-player__bullet'></span>
-    </div>
-    <div class='audio-player__time-wrapper'>
-      <span class='audio-player__time audio-player__time--elapsed'>00:00</span>
-      <span class='audio-player__time audio-player__time--duration'>00:00</span>
-    </div>
-  </div>
-  <div class='audio-player__controls'>
-    <button class='audio-player__btn audio-player__btn--rewind'>
-      ${this.getIcon('fast-rewind')}
-    </button>
-    <button class='audio-player__btn audio-player__btn--play'>
-      ${this.getIcon('play')}
-    </button>
-    <button class='audio-player__btn audio-player__btn--forward'>
-      ${this.getIcon('fast-forward')}
-    </button>
-  </div>
-</div>
+      <div class='Harmoniq ${this.getClassNames()}' style="background-image: url(${this.options.albumArt || '/placeholder.svg'}); --progress: ${this.progress}%">
+        <img src='${this.options.albumArt || '/placeholder.svg'}' class='Harmoniq__image'/>
+        <div class='Harmoniq__label'>
+          <span class='Harmoniq__title'>${this.options.title}</span>
+          <span class='Harmoniq__subtitle'>${this.options.artist}</span>
+        </div>
+        <div class='Harmoniq__progress'>
+          <div class='Harmoniq__line'>
+            <span class='Harmoniq__bullet'></span>
+          </div>
+          <div class='Harmoniq__time-wrapper'>
+            <span class='Harmoniq__time Harmoniq__time--elapsed'>00:00</span>
+            <span class='Harmoniq__time Harmoniq__time--duration'>00:00</span>
+          </div>
+        </div>
+        <div class='Harmoniq__controls'>
+          <button class='Harmoniq__btn Harmoniq__btn--rewind'>
+            ${this.getIcon('fast-rewind')}
+          </button>
+          <button class='Harmoniq__btn Harmoniq__btn--play'>
+            ${this.getIcon('play')}
+          </button>
+          <button class='Harmoniq__btn Harmoniq__btn--forward'>
+            ${this.getIcon('fast-forward')}
+          </button>
+        </div>
+      </div>
     `
 
     this.audioElement.insertAdjacentHTML('afterend', template)
     this.audioElement.remove()
-    this.wrapperElement = document.querySelector(`.audio-player${this.getClassSelectors()}`)
+    this.wrapperElement = document.querySelector(`.Harmoniq${this.getClassSelectors()}`)
     this.addEventListeners()
   }
 
@@ -106,9 +106,9 @@ export default class AudioPlayer {
   }
 
   addPlaybackEventListeners() {
-    const playButton = this.wrapperElement.querySelector('.audio-player__btn--play')
-    const rewindButton = this.wrapperElement.querySelector('.audio-player__btn--rewind')
-    const forwardButton = this.wrapperElement.querySelector('.audio-player__btn--forward')
+    const playButton = this.wrapperElement.querySelector('.Harmoniq__btn--play')
+    const rewindButton = this.wrapperElement.querySelector('.Harmoniq__btn--rewind')
+    const forwardButton = this.wrapperElement.querySelector('.Harmoniq__btn--forward')
     playButton.addEventListener('click', () => {
       if (this.audioElement.paused) this.play()
       else this.pause()
@@ -134,8 +134,8 @@ export default class AudioPlayer {
   addSeekerGrabEventListeners() {
     let isDragging = false
     let isPlaying = false
-    const seeker = this.wrapperElement.querySelector('.audio-player__bullet')
-    const progressLine = this.wrapperElement.querySelector('.audio-player__line')
+    const seeker = this.wrapperElement.querySelector('.Harmoniq__bullet')
+    const progressLine = this.wrapperElement.querySelector('.Harmoniq__line')
 
     seeker.addEventListener('mousedown', () => {
       isDragging = true
@@ -171,7 +171,7 @@ export default class AudioPlayer {
   }
 
   addProgressLineClickEventListeners() {
-    const progressLine = this.wrapperElement.querySelector('.audio-player__line')
+    const progressLine = this.wrapperElement.querySelector('.Harmoniq__line')
     progressLine.addEventListener('click', (event) => {
       const rect = progressLine.getBoundingClientRect()
       const clickPosition = event.clientX - rect.left
@@ -184,24 +184,23 @@ export default class AudioPlayer {
   }
 
   updateElapsedTime() {
-    const elapsedTime = this.wrapperElement.querySelector('.audio-player__time--elapsed')
+    const elapsedTime = this.wrapperElement.querySelector('.Harmoniq__time--elapsed')
     elapsedTime.textContent = this.formatTime(this.audioElement.currentTime)
   }
 
   updateDurationTime() {
-    const durationTime = this.wrapperElement.querySelector('.audio-player__time--duration')
+    const durationTime = this.wrapperElement.querySelector('.Harmoniq__time--duration')
     durationTime.textContent = this.formatTime(this.audioElement.duration)
   }
 
   play() {
     this.audioElement.play()
-    document.querySelector(`.audio-player${this.getClassSelectors()} .audio-player__btn--play`).innerHTML =
+    document.querySelector(`.Harmoniq${this.getClassSelectors()} .Harmoniq__btn--play`).innerHTML =
       this.getIcon('pause')
   }
 
   pause() {
     this.audioElement.pause()
-    document.querySelector(`.audio-player${this.getClassSelectors()} .audio-player__btn--play`).innerHTML =
-      this.getIcon('play')
+    document.querySelector(`.Harmoniq${this.getClassSelectors()} .Harmoniq__btn--play`).innerHTML = this.getIcon('play')
   }
 }

@@ -11,29 +11,29 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const BUNDLE = process.env.BUNDLE === 'true'
 const ESM = process.env.ESM === 'true'
 
-let destinationFile = `audio-player${ESM ? '.esm' : ''}`
+let destinationFile = `Harmoniq${ESM ? '.esm' : ''}`
 const plugins = [
   babel({
     // Only transpile our source code
     exclude: 'node_modules/**',
     // Include the helpers in the bundle, at most one copy of each
-    babelHelpers: 'bundled'
-  })
+    babelHelpers: 'bundled',
+  }),
 ]
 
 const rollupConfig = {
-  input: path.resolve(__dirname, `../src/audio-player.js`),
+  input: path.resolve(__dirname, `../src/Harmoniq.js`),
   output: {
     banner: banner(),
     file: path.resolve(__dirname, `../dist/js/${destinationFile}.js`),
     format: ESM ? 'esm' : 'umd',
-    generatedCode: 'es2015'
+    generatedCode: 'es2015',
   },
-  plugins
+  plugins,
 }
 
 if (!ESM) {
-  rollupConfig.output.name = 'audioplayer'
+  rollupConfig.output.name = 'Harmoniq'
 }
 
 export default rollupConfig

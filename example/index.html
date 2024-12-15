@@ -5,17 +5,17 @@
     <title>Title</title>
   </head>
   <body>
-    <audio controls id="my-audio" class="audio-player custom">
+    <audio controls id="player">
       <source src="/audio.mp3" />
     </audio>
 
-    <!--<script src="../dist/js/audio-player.min.js"></script>-->
+    <!--<script src="../dist/js/Harmoniq.min.js"></script>-->
     <script type="module">
-      import AudioPlayer from '@src/audio-player.js'
+      import AudioPlayer from '@src/Harmoniq.js'
       import '@src/styles/main.scss'
 
       // Instantiate the audio player
-      const player = new AudioPlayer('#my-audio', {
+      const player = new AudioPlayer('#player', {
         title: 'Song Name',
         artist: 'Artist Name',
         iconType: 'outline',

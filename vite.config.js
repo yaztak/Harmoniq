@@ -9,7 +9,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@src': resolve(__dirname, 'src'),
-      '@styles': resolve(__dirname, 'styles'),
       '@dist': resolve(__dirname, 'dist'),
     },
   },
